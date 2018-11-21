@@ -1,26 +1,30 @@
 {
   "name": "combodate",
-  "description": "Dropdown date and time picker",
-  "version": "1.1.0",
-  "homepage": "http://vitalets.github.io/combodate",
-  "author": {
-    "name": "Vitaliy Potapov",
-    "email": "noginsk@rambler.ru"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/vitalets/combodate.git"
-  },
-  "engines": {
-    "node": ">= 0.8.0"
-  },
+  "version": "0.8.0",
+  "description": "Port of the excellente combodate.js to Typescipt, all credits to original author",
+  "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/node-qunit-phantomjs test/index.html",
-    "jshint": "node_modules/.bin/jshint src test/specs"
+    "clean": "rimraf ./dist",
+    "tsc": "tsc",
+    "umd": "node browserify-umd.js",
+    "build": "npm run clean && npm run tsc && npm run umd",
+    "publish_to_npm": "npm publish",
+    "all": "npm run build"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^0.10.0",
-    "jshint": "^2.5.10",
-    "node-qunit-phantomjs": "^1.0.0"
-  }
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "@types/jquery": "3.3.5",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0",
+    "qunit": "^2.8.0",
+    "browserify": "^14.4.0",
+    "browserify-umdify": "^1.0.3"
+  },
+  "author": " TS version mohamed.boullouz@gmail.com",
+  "license": "license"
 }
